@@ -5,12 +5,12 @@ Project Phase 1
 
 Design Verilog module and testbench for:
 
-2-to-1 multiplexor (MUX)
-Instruction memory (IMEM)
-Data memory (DMEM)
-Register file containing 32 registers (RFILE)
-Sign-extension unit (SIGNEXT)
-These components are as described in the single cycle datapath of MIPS.
+* 2-to-1 multiplexor (MUX)
+* Instruction memory (IMEM)
+* Data memory (DMEM)
+* Register file containing 32 registers (RFILE)
+* Sign-extension unit (SIGNEXT)
+* These components are as described in the single cycle datapath of MIPS.
 
 The goal of the project is to design a single cycle processor that supports a small subset of MIPS instruction set architecture. The subset will be provided in phase II of the project where you need to combine the above components to support the instructions.
 
