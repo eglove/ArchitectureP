@@ -1,9 +1,7 @@
-`timescale 1ns/1ps
+module signext (
+input signed [15:0] in,
+output signed [31:0] out);
 
-module signext#(parameter IN=5, OUT=10)
-(
-	input [IN-1:0] din,
-	output [OUT-1:0] dout
-);
+assign out = in;
 
 endmodule
