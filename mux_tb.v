@@ -12,4 +12,10 @@ mux mydut(.mux_output(mux_output),.input0(input0),.input1(input1),.select(select
 			#10 select = 1'b1;
 			#10 input1 = 1'b1;
 	end
+	
+	initial
+        #70 $finish;
+		
+	initial
+      $monitor($time, " input0 = %h",input0," input1 = %h",input1," select = %h",select," mux_output = %h",mux_output);
 endmodule
