@@ -1,0 +1,120 @@
+F:/Quartus/altera/72/multicycle/Mem.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/Mem.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module Mem
+
+Top level modules:
+	Mem
+
+} {} {}} F:/Quartus/altera/72/multicycle/Processor.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/Processor.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module Processor
+
+Top level modules:
+	Processor
+
+} {} {}} F:/Quartus/altera/72/multicycle/adder.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/adder.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module add
+
+Top level modules:
+	add
+
+} {} {}} F:/Quartus/altera/72/multicycle/signExt.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/signExt.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module signExt
+
+Top level modules:
+	signExt
+
+} {} {}} F:/Quartus/altera/72/multicycle/top.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/top.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} F:/Quartus/altera/72/multicycle/Controller.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/Controller.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} F:/Quartus/altera/72/multicycle/mux3.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/mux3.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module mux3
+
+Top level modules:
+	mux3
+
+} {} {}} F:/Quartus/altera/72/multicycle/aludec.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/aludec.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module aludec
+
+Top level modules:
+	aludec
+
+} {} {}} F:/Quartus/altera/72/multicycle/mux4.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/mux4.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module mux4
+
+Top level modules:
+	mux4
+
+} {} {}} F:/Quartus/altera/72/multicycle/Datapath.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/Datapath.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} F:/Quartus/altera/72/multicycle/top_tb.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/top_tb.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module top_tb
+
+Top level modules:
+	top_tb
+
+} {} {}} F:/Quartus/altera/72/multicycle/maindec.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/maindec.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module maindec
+
+Top level modules:
+	maindec
+
+} {} {}} F:/Quartus/altera/72/multicycle/SL2.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/SL2.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module SL2
+
+Top level modules:
+	SL2
+
+} {} {}} F:/Quartus/altera/72/multicycle/ALU.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/ALU.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} F:/Quartus/altera/72/multicycle/mux.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/mux.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} F:/Quartus/altera/72/multicycle/flopr.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/flopr.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module flopr
+
+Top level modules:
+	flopr
+
+} {} {}} F:/Quartus/altera/72/multicycle/RegFile.v {1 {vlog -work work F:/Quartus/altera/72/multicycle/RegFile.v
+Model Technology ModelSim ALTERA vlog 6.1g Compiler 2006.08 Aug 12 2006
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}}

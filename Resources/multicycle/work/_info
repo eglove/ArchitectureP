@@ -1,0 +1,285 @@
+m255
+13
+cModel Technology
+dF:\Quartus\altera\72\exeicese
+v\32-bitProcessor\
+I3O_oOB1`^P31BW8c1fihi2
+VUcQQ[i_2:2m<EdR9ojJmO3
+dF:\Quartus\altera\72\multicycle
+w1228207378
+FF:/Quartus/altera/72/multicycle/bit32_Processor.v
+L0 15
+VUcQQ[i_2:2m<EdR9ojJmO3
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@13432-bit@processor@134
+vadd
+IXI`DNZ@74QInH<IbM8Fo71
+Vb[n]2[L2e?9Vg[bzXLoh03
+dF:\Quartus\altera\72\multicycle
+w1227860386
+FF:/Quartus/altera/72/multicycle/adder.v
+L0 1
+Vb[n]2[L2e?9Vg[bzXLoh03
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vALU
+IXbQR@EZEQ95c]mg;I`TI33
+VTV5UKJ6[YCz3Xe_@PKRe33
+dF:\Quartus\altera\72\multicycle
+w1229090178
+FF:/Quartus/altera/72/multicycle/ALU.v
+L0 3
+VTV5UKJ6[YCz3Xe_@PKRe33
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@a@l@u
+valudec
+I4^BOF^=g:CEdJfIX8=F1`1
+VlJ8Cz`ZozX:RdmDn0V1<d0
+dF:\Quartus\altera\72\multicycle
+w1229082898
+FF:/Quartus/altera/72/multicycle/aludec.v
+L0 1
+VlJ8Cz`ZozX:RdmDn0V1<d0
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vcontroller
+I6fa5ilEk?KDao?iY1JafV1
+VR`JDW:kb[MIa;JIk?TzFc1
+dF:\Quartus\altera\72\multicycle
+w1229083219
+FF:/Quartus/altera/72/multicycle/Controller.v
+L0 1
+VR`JDW:kb[MIa;JIk?TzFc1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vDataMem
+IPn<XEb4_Hz9?LT<ek=R6b1
+Vcka2K7U]@1ALA5nKAF;iH2
+dF:\Quartus\altera\72\multicycle
+w1228292279
+FF:/Quartus/altera/multicycle/Mem.v
+L0 1
+Vcka2K7U]@1ALA5nKAF;iH2
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@data@mem
+vdatapath
+IfD4Ghf??EIEza8@f8dNiB2
+V0nM=mL2j?4V:7E3QaJ?:72
+dF:\Quartus\altera\72\multicycle
+w1229089464
+FF:/Quartus/altera/72/multicycle/Datapath.v
+L0 3
+V0nM=mL2j?4V:7E3QaJ?:72
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vflopr
+IWZRFI5lbEjcJi[GH<3:Em0
+V0Ab1z4_HY^JlcAcAYLEfE3
+dF:\Quartus\altera\72\multicycle
+w1228997241
+FF:/Quartus/altera/72/multicycle/flopr.v
+L0 1
+V0Ab1z4_HY^JlcAcAYLEfE3
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vInsMem
+INF1RZ9`bNnbDKU[e`oADI3
+VK5lD8An3L2a]eX1@_A9R=1
+dF:\Quartus\altera\72\multicycle
+w1228919500
+FF:/Quartus/altera/72/multicycle/InsMem.v
+L0 1
+VK5lD8An3L2a]eX1@_A9R=1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@ins@mem
+vmaindec
+I`IQc0I3MfVeK0JL;A?[oS1
+V>;LZg2SLCjh7Ja8Tc<[ae2
+dF:\Quartus\altera\72\multicycle
+w1229091012
+FF:/Quartus/altera/72/multicycle/maindec.v
+L0 1
+V>;LZg2SLCjh7Ja8Tc<[ae2
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vMem
+I4>aYPDYNU:mHWBHRi@Ml43
+VEEjSc9z[HbSB03oJVd2D]1
+dF:\Quartus\altera\72\multicycle
+w1229082144
+FF:/Quartus/altera/72/multicycle/Mem.v
+L0 1
+VEEjSc9z[HbSB03oJVd2D]1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@mem
+vmux2
+I`B^A]8>h<f79S@0fV=8`Y1
+V05JIL@fW?9^dN7eJD>aH_2
+dF:\Quartus\altera\72\multicycle
+w1228995545
+FF:/Quartus/altera/72/multicycle/mux.v
+L0 2
+V05JIL@fW?9^dN7eJD>aH_2
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vmux3
+IPYz?hFfcFfK1b5nL?56QL2
+V5lFZHH:E6_WoEzEOimUSz3
+dF:\Quartus\altera\72\multicycle
+w1228992820
+FF:/Quartus/altera/72/multicycle/mux3.v
+L0 1
+V5lFZHH:E6_WoEzEOimUSz3
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vmux4
+IZTHZ9H]HCJ`Li_`:cO@8m2
+Vk54`X`RI]b@zk7[m0PEeE1
+dF:\Quartus\altera\72\multicycle
+w1228992864
+FF:/Quartus/altera/72/multicycle/mux4.v
+L0 1
+Vk54`X`RI]b@zk7[m0PEeE1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vpc
+I_W11XHhnmPV^H=o7B1f>O1
+V@@GMGIlXYdKQlzUa2PCe81
+dF:\Quartus\altera\72\multicycle
+w1228990498
+FF:/Quartus/altera/72/multicycle/flopr.v
+L0 1
+V@@GMGIlXYdKQlzUa2PCe81
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vProcessor
+Im0e<E<33Y9mX0[X2IRe8a3
+VNfi3QT0nQnmlSPP2R9C:a3
+dF:\Quartus\altera\72\multicycle
+w1228990118
+FF:/Quartus/altera/72/multicycle/Processor.v
+L0 1
+VNfi3QT0nQnmlSPP2R9C:a3
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@processor
+vregfile
+IO^5:9iOCSX4]3G??nGH[G1
+Vl>JD@?ekG29h[?;gM3Z2H1
+dF:\Quartus\altera\72\multicycle
+w1228998262
+FF:/Quartus/altera/72/multicycle/RegFile.v
+L0 2
+Vl>JD@?ekG29h[?;gM3Z2H1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vsignExt
+I_N?03`P`5]oikLG0MkU@90
+VT?nZzd;2@5kQc0d`;ea?W0
+dF:\Quartus\altera\72\multicycle
+w1228283765
+FF:/Quartus/altera/72/multicycle/signExt.v
+L0 1
+VT?nZzd;2@5kQc0d`;ea?W0
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+nsign@ext
+vSL2
+I3;B7_Gz>:VO20eTXIDegd3
+Vi<5Xld==`UJFfOFdbNLVn2
+dF:\Quartus\altera\72\multicycle
+w1227707567
+FF:/Quartus/altera/72/multicycle/SL2.v
+L0 1
+Vi<5Xld==`UJFfOFdbNLVn2
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+n@s@l2
+vtop
+I026HObA5FWjkZ3ZS`>0oi3
+VT9QQQmWgCQZOk2k7deUTX0
+dF:\Quartus\altera\72\multicycle
+w1228995766
+FF:/Quartus/altera/72/multicycle/top.v
+L0 1
+VT9QQQmWgCQZOk2k7deUTX0
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000
+vtop_tb
+IGcDK0?5<IiW]DQKUAEnLn1
+VPZlnN9NKIVSCl>Jb^72C?1
+dF:\Quartus\altera\72\multicycle
+w1229082345
+FF:/Quartus/altera/72/multicycle/top_tb.v
+L0 2
+VPZlnN9NKIVSCl>Jb^72C?1
+OV;L;6.1g;31
+r1
+31
+o-work work -O0
+tGenerateLoopIterationMax 100000

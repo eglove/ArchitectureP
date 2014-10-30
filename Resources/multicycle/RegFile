@@ -1,0 +1,77 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00034680 .scope module, "regfile" "regfile" 2 2;
+ .timescale 0 0;
+v007627C0_0 .net "clk", 0 0, C4<z>; 0 drivers
+v00784E60_0 .net "ra1", 4 0, C4<zzzzz>; 0 drivers
+v00784EB8_0 .net "ra2", 4 0, C4<zzzzz>; 0 drivers
+v00784F10_0 .var "rd1", 31 0;
+v00784F68_0 .var "rd2", 31 0;
+v0003E160 .array "rf", 0 31, 31 0;
+v0003E1B8_0 .net "wa3", 4 0, C4<zzzzz>; 0 drivers
+v0003E210_0 .net "wd3", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0003E268_0 .net "we3", 0 0, C4<z>; 0 drivers
+E_00762048 .event posedge, v007627C0_0;
+    .scope S_00034680;
+T_0 ;
+    %wait E_00762048;
+    %vpi_call 2 15 "$display", "<<wrenable=%b>><<regdstination=%b>><<content=%b>>", v0003E268_0, v0003E1B8_0, v0003E210_0;
+    %load/v 8, v0003E268_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %load/v 8, v0003E210_0, 32;
+    %ix/getv 3, v0003E1B8_0;
+    %jmp/1 t_0, 4;
+    %ix/load 0, 32, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v0003E160, 0, 8;
+t_0 ;
+T_0.0 ;
+    %load/v 8, v00784E60_0, 5;
+    %mov 13, 0, 1;
+    %cmpi/u 8, 0, 6;
+    %inv 4, 1;
+    %mov 8, 4, 1;
+    %jmp/0  T_0.2, 8;
+    %ix/getv 3, v00784E60_0;
+    %load/av 9, v0003E160, 32;
+    %jmp/1  T_0.4, 8;
+T_0.2 ; End of true expr.
+    %jmp/0  T_0.3, 8;
+ ; End of false expr.
+    %blend  9, 0, 32; Condition unknown.
+    %jmp  T_0.4;
+T_0.3 ;
+    %mov 9, 0, 32; Return false value
+T_0.4 ;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00784F10_0, 0, 9;
+    %load/v 8, v00784EB8_0, 5;
+    %mov 13, 0, 1;
+    %cmpi/u 8, 0, 6;
+    %inv 4, 1;
+    %mov 8, 4, 1;
+    %jmp/0  T_0.5, 8;
+    %ix/getv 3, v00784EB8_0;
+    %load/av 9, v0003E160, 32;
+    %jmp/1  T_0.7, 8;
+T_0.5 ; End of true expr.
+    %jmp/0  T_0.6, 8;
+ ; End of false expr.
+    %blend  9, 0, 32; Condition unknown.
+    %jmp  T_0.7;
+T_0.6 ;
+    %mov 9, 0, 32; Return false value
+T_0.7 ;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00784F68_0, 0, 9;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "RegFile.v";
