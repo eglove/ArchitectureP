@@ -1,2 +1,13 @@
 Data Memory-https://github.com/jmahler/mips-cpu/blob/master/verilog/dm.v
 Sign Extend-http://stackoverflow.com/questions/4176556/how-to-sign-extend-a-number-in-Verilog
+
+Instruction memory code-
+http://jasminejwalker.com/_docs/Single-Cycle%20Processor/Lab%204%20Report.pdf
+https://github.com/Caskman/MIPS-Processor-in-Verilog/blob/master/InstructionMemory.v
+
+Data memory code-
+https://github.com/jmahler/mips-cpu/blob/master/verilog/dm.v
+http://www.scribd.com/doc/77105964/verilog
+
+Really cool explanation for datapath-
+http://courses.cs.washington.edu/courses/cse378/09wi/lectures/lec07-annotated.pdf
