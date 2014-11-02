@@ -7,7 +7,7 @@ Design Verilog module and testbench for:
 
 * ~~2-to-1 multiplexor (MUX)~~
 * Instruction memory (IMEM)
-* Data memory (DMEM)
+* ~~Data memory (DMEM)~~
 * Register file containing 32 registers (RFILE)
 * ~~Sign-extension unit (SIGNEXT)~~
 * These components are as described in the single cycle datapath of MIPS.

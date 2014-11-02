@@ -51,5 +51,5 @@ module dmem_tb;
 		#70 $finish;
 		
 	initial
-		$monitor($time, "writeData = %d",writeData,"readData = %d",readData);
+		$monitor($time, " writeData = %d",writeData," readData = %d",readData);
 endmodule

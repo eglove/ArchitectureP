@@ -11,6 +11,7 @@ reg [31:0] dataMemory[0:512];
 // If readWrite = 1 (Write), Write data to write address (in data memory)
 // If readWrite = 0 (Read), Read data in read address (in data memory)
 always@(*)
+begin
 	if(readWrite)
 		dataMemory[writeAddress] = writeData;
 	else
