@@ -2,52 +2,46 @@
 // read register 2
 // write register
 // write data
-// read data
+// read data 1
 // read data 2
 
+`timescale 1ns / 1ns
+module rfile(clk, rst,read_reg_1, read_reg_2,write_en, write_reg, write_data, read_data_1, read_data_2);
+    input clk, rst;
 
-
-
-module rfile(clk, read_reg_1, read_reg_2, write_reg, write_data, read_data_1, read_data_2);
-    input clk;
-
-    // port 1
+    // read port 1
     input [4:0] read_reg_1;
     output [31:0]  read_data_1;
 
-    // port 2
+    // read port 2
     input [4:0] read_reg_2;
     output  [31:0]  read_data_2;
 
+    // write port
+    input write_en;
     input [4:0]write_reg;
+    input [31:0] write_data;
 
-    // a 32 x 32 memory register
-    reg [31:0] memory[31:0];
 
-    // initialize all the memory locations with binary 0
-     initial
-     begin
-       for(i=0 ; i<32 ; i=i+1)
-       begin
-              for(j=0 ; j<32 ; j= j+1)
-                memory[i][j] = 1'b0;
-       end
-     end
+    // a 32 x 32 memory file
+    reg [31:0] memory[0:31];
 
-   // always @(negedge clk)
-   // begin
-   //     if( rdwrite != 0 )          // this is  read only register
-   //         RAM[rdwrite] = rd;      // write rd data to this cell
-  //  end
+    assign read_data_1 = memory[read_reg_1];
+    assign read_data_2 = memory[read_reg_2];
 
-  //  always @(RAM[rssread])
-  //  begin
-  //      rs = RAM[rssread]           // fetch rs data
-  //  end
-
- //   always @(RAM[rstread])
-  //  begin
- //       rt = RAM[rstread]           // fetch rt
- //   end
+    integer i;
+    always @(posedge clk)
+    begin
+        if(rst) begin
+            for (i = 0; i < 32; i = i + 1) begin
+                memory[i] <= 0;
+            end
+        end
+        else begin
+            if (write_en) begin
+                memory[write_reg] <= write_data;
+            end
+        end
+    end
 endmodule
 
