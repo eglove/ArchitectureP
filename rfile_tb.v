@@ -8,7 +8,7 @@ module rfile_tb;
     wire [31:0] read_data_2;
 
     //write
-    reg write_en
+    reg write_en;
     reg [4:0] write_reg;
     reg [31:0] write_data;
 
@@ -41,19 +41,19 @@ module rfile_tb;
         //writing data into register file
         write_en = 1;
         write_reg = 0;
-        write_data = 8'h2a;
+        write_data = 32'b0000_0000_0000_0000_0000_0000_0101_0101;
 
         @(posedge clk);
         write_reg = 1;
-        write_data = 8'h37;
+        write_data = 32'b0000_0000_0000_0000_0000_0000_0111_0101;
 
         @(posedge clk);
         write_reg = 2;
-        write_data = 8'h8b;
+        write_data = 32'b0000_0000_0000_0000_0000_0000_1101_0101;
 
         @(posedge clk);
         write_reg = 3;
-        write_data = 8'hfd;
+        write_data = 32'b0000_0000_0000_0000_0000_0000_0101_0111;
 
         //stop writing data into register file
         @(posedge clk);
@@ -61,8 +61,8 @@ module rfile_tb;
 
         @(posedge clk);
         //reading data from register file
-        read_data_1 = 0;
-        read_data_2 = 1;
+        read_reg_1 = 0;
+        read_reg_2 = 1;
 
         @(posedge clk);
         read_reg_1 = 2;
