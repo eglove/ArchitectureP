@@ -6,7 +6,7 @@ Project Phase 1
 Design Verilog module and testbench for:
 
 * ~~2-to-1 multiplexor (MUX)~~
-* Instruction memory (IMEM)
+* ~~Instruction memory (IMEM)~~
 * ~~Data memory (DMEM)~~
 * Register file containing 32 registers (RFILE)
 * ~~Sign-extension unit (SIGNEXT)~~
