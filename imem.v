@@ -1,25 +1,25 @@
 `timescale 1ns/1ps
-module imem(Address, Instruction);
+module imem(clk, Address, Instruction);
+input clk;
+input [2:0] Address;
+output reg[31:0] Instruction;
+reg [31:0] words[0:7]; // 8 words of size 4
 
-input [31:0] Address; 
-output [31:0] Instruction;
-
-reg[31:0] word1 = 10;
-reg[31:0] word2 = 20;
-reg[31:0] word3 = 30;
-reg[31:0] word4 = 40;
-reg[31:0] word5 = 50;
-reg[31:0] word6 = 60;
-
-always@(Address)
-begin
-	case(Address)
-		0: Instruction = word1;
-		4: Instruction = word2;
-		8: Instruction = word3;
-		12: Instruction = word4;
-		16: Instruction = word5;
-		20: Instruction = word6;
-	endcase
-end
+initial
+	begin
+		// Arbitrary initial instructions
+		words[0] = 10;
+		words[1] = 20;
+		words[2] = 30;
+		words[3] = 40;
+		words[4] = 50;
+		words[5] = 60;
+		words[6] = 70;
+		words[7] = 80;
+	end
+	
+always@(posedge clk)
+	begin
+		Instruction <= words[Address];
+	end
 endmodule
