@@ -22,7 +22,7 @@ initial begin
 end
 
 initial 
-	#70 $finish
+	#70 $finish;
 
 initial 
 	$monitor($time, "Address = %d", Address, "Instruction = %d", Instruction);

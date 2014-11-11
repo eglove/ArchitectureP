@@ -68,4 +68,16 @@ module rfile_tb;
         read_reg_1 = 2;
         read_reg_2 = 3;
     end
+    
+    initial 
+        #70 $finish;
+        
+    initial 
+        $monitor($time, " read_reg_1 = %d", read_reg_1,
+                        " read_reg_2 = %d", read_reg_2,
+                        " write_en = %d", write_en,
+                        " write_reg = %d", write_reg,
+                        " write_data = %d", write_data
+                        );        
+        
 endmodule

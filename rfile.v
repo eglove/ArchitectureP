@@ -29,6 +29,7 @@ module rfile(clk, rst,read_reg_1, read_reg_2,write_en, write_reg, write_data, re
     assign read_data_1 = memory[read_reg_1];
     assign read_data_2 = memory[read_reg_2];
 
+    // We only write data on clock edge to prevent race condition
     integer i;
     always @(posedge clk)
     begin
