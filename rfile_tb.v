@@ -70,7 +70,7 @@ module rfile_tb;
     end
     
     initial 
-        #70 $finish;
+        #2000 $finish;
         
     initial 
         $monitor($time, " read_reg_1 = %d", read_reg_1,
