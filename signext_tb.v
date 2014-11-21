@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 module signext_tb;
-reg [15:0] input1;
+reg signed [15:0] input1;
 reg signext;
-wire [31:0] output1;
+wire signed [31:0] output1;
 
 signext mydut(.input1(input1), .output1(output1),.signext(signext));
 
@@ -10,6 +10,7 @@ initial begin
     input1 = 0; signext = 1;
     #10 input1 = 16'b0000_0000_0000_0101;
 	#10 input1 = 16'b0000_0000_0000_1000;
+	#10 input1 = -6;
 end
 
 	initial
