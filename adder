@@ -1,0 +1,68 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 10;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00817670 .scope module, "adder_tb" "adder_tb" 2 2;
+ .timescale -9 -10;
+v00812B70_0 .var/s "in1", 31 0;
+v00814CF8_0 .var/s "in2", 31 0;
+v00814D50_0 .net/s "out", 31 0, v00812B18_0; 1 drivers
+S_00817230 .scope module, "mydut" "adder" 2 6, 3 1, S_00817670;
+ .timescale 0 0;
+v00723C78_0 .net "in1", 31 0, v00812B70_0; 1 drivers
+v00812AC0_0 .net "in2", 31 0, v00814CF8_0; 1 drivers
+v00812B18_0 .var "out", 31 0;
+E_00721DB0 .event edge, v00812AC0_0, v00723C78_0;
+    .scope S_00817230;
+T_0 ;
+    %wait E_00721DB0;
+    %load/v 8, v00723C78_0, 32;
+    %load/v 40, v00812AC0_0, 32;
+    %add 8, 40, 32;
+    %set/v v00812B18_0, 8, 32;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_00817670;
+T_1 ;
+    %set/v v00812B70_0, 0, 32;
+    %set/v v00814CF8_0, 0, 32;
+    %delay 100, 0;
+    %movi 8, 1, 32;
+    %set/v v00812B70_0, 8, 32;
+    %movi 8, 1, 32;
+    %set/v v00814CF8_0, 8, 32;
+    %delay 100, 0;
+    %movi 8, 5, 32;
+    %set/v v00812B70_0, 8, 32;
+    %movi 8, 5, 32;
+    %set/v v00814CF8_0, 8, 32;
+    %delay 100, 0;
+    %set/v v00812B70_0, 1, 32;
+    %movi 8, 2, 32;
+    %set/v v00814CF8_0, 8, 32;
+    %delay 100, 0;
+    %movi 8, 4294967294, 32;
+    %set/v v00812B70_0, 8, 32;
+    %movi 40, 1, 32;
+    %set/v v00814CF8_0, 40, 32;
+    %end;
+    .thread T_1;
+    .scope S_00817670;
+T_2 ;
+    %delay 700, 0;
+    %vpi_call 2 16 "$finish";
+    %end;
+    .thread T_2;
+    .scope S_00817670;
+T_3 ;
+    %vpi_call 2 19 "$monitor", $time, "%d", v00812B70_0, " + %d", v00814CF8_0, " = %d", v00814D50_0;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "adder_tb.v";
+    "adder.v";
