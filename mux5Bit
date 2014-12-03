@@ -1,0 +1,67 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 10;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_000233E0 .scope module, "mux_tb" "mux_tb" 2 2;
+ .timescale -9 -10;
+v00723458_0 .var "input0", 4 0;
+v00723998_0 .var "input1", 4 0;
+v007239F0_0 .net "mux_output", 4 0, v007233A8_0; 1 drivers
+v00723A48_0 .var "select", 0 0;
+S_00022AC0 .scope module, "mydut" "mux" 2 7, 3 1, S_000233E0;
+ .timescale 0 0;
+v00022B48_0 .net "input0", 4 0, v00723458_0; 1 drivers
+v00022BA0_0 .net "input1", 4 0, v00723998_0; 1 drivers
+v007233A8_0 .var "mux_output", 4 0;
+v00723400_0 .net "select", 0 0, v00723A48_0; 1 drivers
+E_00721D90 .event edge, v00723400_0, v00022BA0_0, v00022B48_0;
+    .scope S_00022AC0;
+T_0 ;
+    %wait E_00721D90;
+    %load/v 8, v00723400_0, 1;
+    %mov 9, 0, 4;
+    %cmpi/u 8, 0, 5;
+    %jmp/0xz  T_0.0, 4;
+    %load/v 8, v00022B48_0, 5;
+    %set/v v007233A8_0, 8, 5;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v00022BA0_0, 5;
+    %set/v v007233A8_0, 8, 5;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000233E0;
+T_1 ;
+    %set/v v00723A48_0, 0, 1;
+    %set/v v00723458_0, 0, 5;
+    %set/v v00723998_0, 0, 5;
+    %delay 100, 0;
+    %movi 8, 1, 5;
+    %set/v v00723458_0, 8, 5;
+    %delay 100, 0;
+    %set/v v00723A48_0, 1, 1;
+    %delay 100, 0;
+    %movi 8, 1, 5;
+    %set/v v00723998_0, 8, 5;
+    %end;
+    .thread T_1;
+    .scope S_000233E0;
+T_2 ;
+    %delay 700, 0;
+    %vpi_call 2 17 "$finish";
+    %end;
+    .thread T_2;
+    .scope S_000233E0;
+T_3 ;
+    %vpi_call 2 20 "$monitor", $time, " input0 = %h", v00723458_0, " input1 = %h", v00723998_0, " select = %h", v00723A48_0, " mux_output = %h", v007239F0_0;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux5Bit_tb.v";
+    "mux5Bit.v";
