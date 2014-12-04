@@ -1,21 +1,22 @@
-module pc (clk, reset, in, out);
+module PC(clk, reset, in, count);
 
-input clk;
-input reset;
-input [31:0] in;
+input           clk;
+input           reset;
+input   [31:0]  in;
+output  [31:0]  count;
 
-output [31:0] out;
-reg [31:0] out;
+reg     [31:0]  count;
 
-always @(posedge clk)
-	begin if(~reset)
-		begin
-			out <= 32'b0;
-		end
-	else
-		begin
-			out <= in;
-		end
-	end
+always @(posedge clk or negedge reset)
+begin
+    if (~reset)
+    begin
+        count <= 32'b0;
+    end
+    else
+    begin
+        count <= in;
+    end
+end
 
 endmodule
