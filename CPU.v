@@ -16,7 +16,10 @@ adder PC_Add_4(.in1(pc), .in2(32'd4), .out(PC_4));
 
 imem imem(.Address(pc), .Instruction(instruction));
 
-// CONTROL MODULE HERE
+control_unit control_unit(.opcode(Instr[31:26]), .RegDst(RegDST),
+    .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg),
+    .ALUOp(ALUOp), .MemWrite(MemWrite), .ALUSrc(ALUSrc),
+    .RegWrite(RegWrite));
 
 mux5Bit MUX_RegDst(.input0(Instr[20:16]), .input1(Instr(15:11),
 	.select(RegDST), .mux_output(mux_RegDST));
@@ -34,7 +37,8 @@ adder PC_Add_Offset(.in1(PC_4), .in2(Offset), .out(PC_Offset));
 mux MUX_ALUsrc(.input0(Rt_Data), .input1(Immediate)
 	.select(ALUSrc), .mux_output(mux_ALUSrc));
 	
-// ALU CONTROL HERE
+alu_control alu_control(.funct(Instr[5:0]), .ALUOp(ALUOp),
+    .ALUCtrl(ALUCtrl));
 
 mipsalu ALU(.A(Rs_Data), .B(mux_ALUSrc), .ALUctl(ALUCtrl),
 	.ALUOut(ALUResult), .Zero(Zero));
