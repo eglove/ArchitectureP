@@ -1,21 +1,17 @@
-module PC(clk, reset, in, count);
+module pc(clk, reset, count);
 
 input           clk;
 input           reset;
-input   [31:0]  in;
 output  [31:0]  count;
-
 reg     [31:0]  count;
 
 always @(posedge clk or negedge reset)
 begin
-    if (~reset)
-    begin
-        count <= 32'b0;
-    end
+    if (reset)
+		count = 32'b0;
     else
     begin
-        count <= in;
+        count = count + 4;
     end
 end
 

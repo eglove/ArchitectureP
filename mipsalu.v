@@ -13,9 +13,9 @@ module MIPSALU( ALUOut, Zero, ALUctl, A, B);
             0:        ALUOut <= A & B;
             1:        ALUOut <= A | B;
             2:        ALUOut <= A + B;
-            6:        ALUOut <= A - B;
-            7:        ALUOut <= (A < B)?1:0;
-            12:    ALUOut <=  ~(A | B);    // result is nor
+            3:        ALUOut <= A - B;
+            4:        ALUOut <= (A < B)?1:0;
+            5:    ALUOut <=  ~(A | B);    // result is nor
             default: ALUOut <= 0;
         endcase
     end
