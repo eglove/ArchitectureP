@@ -37,7 +37,7 @@ adder PC_Add_Offset(.in1(PC_4), .in2(Offset), .out(PC_Offset));
 mux MUX_ALUsrc(.input0(Rt_Data), .input1(Immediate),
 	.select(ALUSrc), .mux_output(mux_ALUSrc));
 	
-alu_control alu_control(.funct(Instr[5:0]), .ALUOp(ALUOp),
+mipsalu alu_control(.funct(Instr[5:0]), .ALUOp(ALUOp),
     .ALUCtrl(ALUCtrl));
 
 mipsalu ALU(.A(Rs_Data), .B(mux_ALUSrc), .ALUctl(ALUCtrl),
@@ -52,3 +52,5 @@ dmem Data_Memory(.readAddress(ALUResult), .writeAddress(Rt_Data),
 
 mux MUX_MemtoReg(.input0(ALUResult), .input1(MemData),
 	.select(MemtoReg), .mux_output(mux_MemtoReg));
+	
+endmodule

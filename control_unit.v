@@ -1,4 +1,4 @@
-module control(opcode, RegDst, Branch, MemRead, MemtoReg, ALUOp,
+module control_unit(opcode, RegDst, Branch, MemRead, MemtoReg, ALUOp,
 	MemWrite, ALUSrc, RegWrite);
 	
 input [5:0] opcode;

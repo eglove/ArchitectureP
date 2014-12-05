@@ -5,7 +5,7 @@ module dmem_tb;
 	reg [31:0] writeData;
 	wire [31:0] readData;
 	
-	dmem dut(.readAddress(readAddress),
+	dmem mydut(.readAddress(readAddress),
 		.readData(readData),
 		.writeAddress(writeAddress),
 		.writeData(writeData)

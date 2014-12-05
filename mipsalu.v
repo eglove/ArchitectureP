@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 `define LEN 32
-module MIPSALU( ALUOut, Zero, ALUctl, A, B);
+module mipsalu( ALUOut, Zero, ALUctl, A, B);
     input [3:0] ALUctl;
     input [`LEN-1:0] A, B;
     output reg [`LEN-1:0] ALUOut;
