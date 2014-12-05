@@ -6,7 +6,7 @@ input [31:0] writeData;
 output reg [31:0] readData;
 reg [31:0] dataMemory[0:512];
 
-always@(posedge clk)
+always@(*)
 begin
 	dataMemory[writeAddress] = writeData;
 	readData = dataMemory[readAddress];

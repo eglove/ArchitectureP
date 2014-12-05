@@ -5,7 +5,8 @@ input clk, reset;
 wire RegDST, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, Zero, Branch_Zero;
 wire [2:0] ALUOp, ALUCtrl;
 wire [4:0] mux_RegDST;
-wire [31:0] mux_ALUSrc, mux_Branch, mux_MemtoReg, Instr, pc, PC_4, Rs_Data, Rt_Data, Immediate, Offset, PC_Offset, ALUResult, MemData;
+wire [31:0] mux_ALUSrc, mux_Branch, mux_MemtoReg, Instr, pc, PC_4, Rs_Data, Rt_Data, Immediate, Offset, PC_Offset, ALUResult, MemData, 
+	instruction;
 
 assign Offset = Immediate << 2;
 assign Branch_Zero = Branch & Zero;
@@ -27,7 +28,7 @@ mux5Bit MUX_RegDst(.input0(Instr[20:16]), .input1(Instr[15:11]),
 rfile Register_File(.clk(), .read_reg_1(Instr[25:21]),
 	.read_reg_2(Instr[20:16]), .write_reg(mux_RegDST),
 	.read_data_1(mux_MemtoReg), .read_data_2(mux_MemtoReg),
-	.write_data(Rt_Data), .memory(RegWrite));
+	.write_data(Rt_Data));
 	
 signext signeext (.input1(Instr[15:0]),.signext(1'b1),
 	.output1(Immediate));

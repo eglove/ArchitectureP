@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 module imem(clk, Address, Instruction);
 input clk;
-input [2:0] Address;
+input [31:0] Address;
 output reg[31:0] Instruction;
 reg [31:0] words[0:7]; // 8 words of size 4
 
