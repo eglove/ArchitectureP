@@ -1,4 +1,4 @@
-module mux(input0, input1, select, mux_output);
+module mux5Bit(input0, input1, select, mux_output);
 
 input [4:0] input0, input1;
 input select;

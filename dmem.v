@@ -1,4 +1,3 @@
-`timescale 1ns/1ps
 module dmem(readAddress, readData, writeAddress, writeData);
 input [8:0] readAddress;
 input [8:0] writeAddress;
