@@ -19,7 +19,7 @@ initial begin
     // Initialize data memory
     for(i=0; i<31; i=i+1) begin
         CPU.dmem.dataMemory[i] = 8'b0;
-    end    
+    end
         
     // initialize Register File
     for(i=0; i<32; i=i+1) begin
