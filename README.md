@@ -18,9 +18,9 @@ sw
 slt
  
 
-~~Write a processor module in Verilog that instantiates all the modules you wrote in the Phase-I as well as the control modules provided with this phase. More about module instantiation can be found here:
+~~Write a processor module in Verilog that instantiates all the modules you wrote in the Phase-I as well as the control modules provided with this phase. More about module instantiation can be found here:~~
 
-http://verilog.renerta.com/mobile/source/vrg00027.htm ~~
+http://verilog.renerta.com/mobile/source/vrg00027.htm
 
 The processor module will just use a clock input. Write a processor testbench to simulate the processor module by “ticking” the clock for appropriate number of cycles. **The processor should be tested with a short assembly program (stored in the instruction memory) involving five or more different instructions listed above.** The following information may be useful for implementing the processor.
 
