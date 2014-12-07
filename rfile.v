@@ -35,7 +35,7 @@ module rfile(clk, rst,read_reg_1, read_reg_2,write_en, write_reg, write_data, re
     begin
         if(rst) begin
             for (i = 0; i < 32; i = i + 1) begin
-                memory[i] <= 0;
+                memory[i] <= i;
             end
         end
         else begin

@@ -1,56 +1,127 @@
-module CPU(clk, reset);
+module processor (clk,rst,result,writeData);
+input clk,rst;
+output [31:0] result,writeData;
+wire [4:0] read_address2,write_address;
+wire [31:0] ALUOut,op2,sign_ext,readAddress,writeAddress,writeData,rf_write_data;
+wire [4:0]  pc_in = 0; 
+wire [4:0]  p_counter;
+wire [31:0] Instruction;
+wire [31:0] read_data_1, read_data_2;
+wire [31:0] readData;
+wire        Zero;
+wire RegDst, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite;
+wire [2:0]  ALUOp;
+wire [3:0]  ALUCtrl;
+assign pc_in = p_counter;
+assign result = rf_write_data;
+//////////////////////Program Counter/////////////////////
+PC program_counter(
+                   .clk       (clk), 
+				   .rst       (rst),
+				   .pc_in     (pc_in), 
+				   .p_counter (p_counter));
 
-input clk, reset;
+//////////////////////instruction Memory/////////////////////
+imem ins_mem(
+             .Instruction (Instruction),
+			 .clk         (clk), 
+			 .Address     (p_counter));
+			 
+//////////////////////5bit 2x1 Mux/////////////////////
+mux # 
+  (.DATA_SIZE (5)) 
+  mux1 (
+        .outdata (write_address),
+        .in1     (Instruction[15:11]),
+        .in2     (Instruction[20:16]),
+        .select  (RegDst));
 
-wire RegDST, Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, Zero, Branch_Zero;
-wire [2:0] ALUOp, ALUCtrl;
-wire [4:0] mux_RegDST;
-wire [31:0] mux_ALUSrc, mux_Branch, mux_MemtoReg, Instr, programCounter, PC_4, Rs_Data, Rt_Data, Immediate, Offset, PC_Offset, ALUResult, MemData, 
-	instruction;
+		
+//////////////////////Register File/////////////////////		
+rfile reg_file(
+              .clk         (clk), 
+			  .rst         (rst),
+			  .read_reg_1  (Instruction[25:21]), 
+			  .read_reg_2  (Instruction[20:16]),
+			  .write_en    (RegWrite), 
+			  .write_reg   (write_address), 
+			  .write_data  (rf_write_data), 
+			  .read_data_1 (read_data_1), 
+			  .read_data_2 (read_data_2));
+			  
+//////////////////////Sign Extend unit/////////////////////			  
+signext signext1 (
+               .input1  (Instruction[15:0]), 
+			   .signext (0), 
+			   .output1 (sign_ext) );
+			   
+//////////////////////32bit 2x1 Mux////////////////////////
+mux # (32) mux2 (
+               .outdata (op2),
+               .in1     (sign_ext),
+               .in2     (read_data_2),
+               .select  (ALUSrc));
+		
+//////////////////////ALU/////////////////////////////////// 		
+MIPSALU alu( 
+           .ALUOut (ALUOut), 
+		   .Zero   (Zero), 
+		   .ALUctl (ALUCtrl), 
+		   .op1    (read_data_1), 
+		   .op2    (op2));
 
-assign Offset = Immediate << 2;
-assign Branch_Zero = Branch & Zero;
+//////////////////////Data Memory///////////////////// 		   
+assign readAddress = ALUOut;
+assign writeAddress = ALUOut;
+assign writeData   = read_data_2;
+dmem Data_mem(
+           .readData     (readData), 
+		   .readAddress  (readAddress),  
+		   .writeAddress (writeAddress), 
+		   .writeData    (writeData), 
+		   .MemRead      (MemRead),
+		   .MemWrite     (MemWrite));
+		   
+//////////////////////32bit 2x1 Mux////////////////////////		   
+mux # (32) mux3 (
+           .outdata (rf_write_data),
+           .in1     (readData),
+           .in2     (ALUOut),
+           .select  (MemtoReg));
+		   
+//////////////////////Control Unit////////////////////////
+ Control control_unit(
+           .opcode   (Instruction[31:26]),
+           .RegDst   (RegDst),
+           .Branch   (Branch),
+           .MemRead  (MemRead),
+           .MemtoReg (MemtoReg),
+           .ALUOp    (ALUOp),
+           .MemWrite (MemWrite), 
+           .ALUSrc   (ALUSrc),
+           .RegWrite (RegWrite)
+);
 
-pc pc(.clk(clk),.reset(reset),.count(programCounter));
+//////////////////////ALU Control Unit////////////////////////
+ALU_Control alu_control(
+		   .funct   (Instruction[5:0]),
+		   .ALUOp   (ALUOp),
+		   .ALUCtrl (ALUCtrl)
+		   );
 
-adder PC_Add_4(.in1(programCounter), .in2(32'd4), .out(PC_4));
-
-imem imem(.Address(programCounter), .Instruction(instruction));
-
-control_unit control_unit(.opcode(Instr[31:26]), .RegDst(RegDST),
-    .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg),
-    .ALUOp(ALUOp), .MemWrite(MemWrite), .ALUSrc(ALUSrc),
-    .RegWrite(RegWrite));
-
-mux5Bit MUX_RegDst(.input0(Instr[20:16]), .input1(Instr[15:11]),
-	.select(RegDST), .mux_output(mux_RegDST));
-	
-rfile Register_File(.clk(), .read_reg_1(Instr[25:21]),
-	.read_reg_2(Instr[20:16]), .write_reg(mux_RegDST),
-	.read_data_1(mux_MemtoReg), .read_data_2(mux_MemtoReg),
-	.write_data(Rt_Data));
-	
-signext signeext (.input1(Instr[15:0]),.signext(1'b1),
-	.output1(Immediate));
-
-adder PC_Add_Offset(.in1(PC_4), .in2(Offset), .out(PC_Offset));
-
-mux MUX_ALUsrc(.input0(Rt_Data), .input1(Immediate),
-	.select(ALUSrc), .mux_output(mux_ALUSrc));
-	
-alu_control alu_control(.funct(Instr[5:0]), .ALUOp(ALUOp),
-    .ALUCtrl(ALUCtrl));
-
-mipsalu ALU(.A(Rs_Data), .B(mux_ALUSrc), .ALUctl(ALUCtrl),
-	.ALUOut(ALUResult), .Zero(Zero));
-	
-mux MUX_Branch(.input0(PC_4), .input1(PC_Offset),
-	.select(Branch_Zero), .mux_output(mux_Branch));
-
-dmem Data_Memory(.readAddress(ALUResult), .writeAddress(Rt_Data),
-	.writeData(MemWrite), .readData(MemRead));
-
-mux MUX_MemtoReg(.input0(ALUResult), .input1(MemData),
-	.select(MemtoReg), .mux_output(mux_MemtoReg));
-	
 endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

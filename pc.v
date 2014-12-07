@@ -1,18 +1,12 @@
-module pc(clk, reset, count);
+module PC (clk, rst, pc_in, p_counter);
+input clk,rst;
+input [4:0] pc_in;
+output reg [4:0] p_counter;
 
-input           clk;
-input           reset;
-output  [31:0]  count;
-reg     [31:0]  count;
-
-always @(posedge clk or negedge reset)
-begin
-    if (reset)
-		count = 32'b0;
-    else
-    begin
-        count = count + 4;
-    end
-end
+always@(posedge clk)
+if(rst)
+p_counter <= 0;
+else
+p_counter <= p_counter + 4;
 
 endmodule

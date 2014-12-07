@@ -1,14 +1,11 @@
-module mux(input0, input1, select, mux_output);
+module mux# 
+(parameter DATA_SIZE = 32 )
+(
+output [DATA_SIZE - 1:0] outdata ,  // MUX out
+input [DATA_SIZE - 1:0]  in1,       // MUX input 1
+input [DATA_SIZE - 1:0]  in2,       // MUX input 2
+input                    select     // input1: Select = 1 , input2: Select = 0
+); 
 
-input input0, input1;
-input select;
-output mux_output;
-reg mux_output;
-
-always @(input0 or input1 or select)
-	if(select == 1'b0)
-		mux_output = input0;
-	else
-		mux_output = input1;
-
+assign outdata = select ? in1 : in2;
 endmodule
